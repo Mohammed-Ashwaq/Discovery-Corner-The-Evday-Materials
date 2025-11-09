@@ -1,501 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Loom Textile Experience Centre</title>
-    <style>
-        :root {
-            --primary-color: #d4af37;
-            --secondary-color: #8b4513;
-            --accent-color: #556b2f;
-            --light-color: #f5f5dc;
-            --dark-color: #2f2f2f;
-            --text-color: #333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', serif;
-        }
-        
-        body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, transparent 65%, rgba(212, 175, 55, 0.1) 65%, rgba(212, 175, 55, 0.1) 70%, transparent 70%),
-                linear-gradient(-45deg, transparent 65%, rgba(212, 175, 55, 0.1) 65%, rgba(212, 175, 55, 0.1) 70%, transparent 70%);
-            background-size: 40px 40px;
-            z-index: 1;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: var(--dark-color);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        nav li {
-            margin: 0 1.5rem;
-        }
-        
-        nav a {
-            color: var(--light-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            display: inline-block;
-            padding-bottom: 10px;
-            position: relative;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-        
-        /* Cards Layout */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card-image {
-            height: 180px;
-            background-color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-image:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, transparent 65%, rgba(255, 255, 255, 0.1) 65%, rgba(255, 255, 255, 0.1) 70%, transparent 70%),
-                linear-gradient(-45deg, transparent 65%, rgba(255, 255, 255, 0.1) 65%, rgba(255, 255, 255, 0.1) 70%, transparent 70%);
-            background-size: 30px 30px;
-        }
-        
-        .card-image.books:before {
-            background-color: #8b7355;
-        }
-        
-        .card-image.songs:before {
-            background-color: #6b8e23;
-        }
-        
-        .card-image.iconic:before {
-            background-color: #cd853f;
-        }
-        
-        .card-image.events:before {
-            background-color: #b8860b;
-        }
-        
-        .card-icon {
-            font-size: 4rem;
-            color: white;
-            z-index: 2;
-        }
-        
-        .card-content {
-            padding: 1.5rem;
-        }
-        
-        .card-category {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-        
-        .card-creator {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .card-description {
-            font-size: 0.95rem;
-            color: #555;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .contact-info {
-            margin-top: 2rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Loom — Everyday Materials Exhibit (Stone Cards)</title>
+<style>
+  /* ---------- Enhanced Color Palette ---------- */
+  :root{
+    --primary:#ff6b6b;   /* vibrant coral */
+    --secondary:#48dbfb; /* bright cyan */
+    --accent:#ff9ff3;    /* pink */
+    --purple:#a55eea;    /* vibrant purple */
+    --yellow:#feca57;    /* golden yellow */
+    --green:#1dd1a1;     /* mint green */
+    --orange:#ff9f43;    /* bright orange */
+    --bg:#fbfaf8;
+    --card-surface: rgba(255,255,255,0.92);
+    --muted:#5b5b5b;
+    --shadow: 0 12px 30px rgba(18,18,18,0.08);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="black"/><circle cx="80" cy="40" r="1" fill="black"/><circle cx="40" cy="80" r="1" fill="black"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'),
+    linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit}
+
+  /* ---------- Enhanced HERO ---------- */
+  header{
+    position:relative;
+    padding:3.2rem 1.25rem 2.4rem;
+    color:#fff;
+    border-bottom-left-radius:28px;
+    border-bottom-right-radius:28px;
+    box-shadow: var(--shadow);
+    overflow:visible;
+    background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), var(--purple), var(--yellow), var(--green));
+    background-size:400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  @keyframes gradientShift{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  header .wrap{
+    max-width:900px;margin:0 auto;text-align:left;
+  }
+  .hero-title{font-size:1.35rem;font-weight:700;line-height:1.15;margin-bottom:.35rem}
+  .hero-sub{font-size:0.95rem;opacity:0.95;max-width:58ch;color:rgba(255,255,255,0.95)}
+
+  /* floating shapes */
+  .float-shape{position:absolute;border-radius:50%;opacity:0.12;filter:blur(6px);pointer-events:none}
+  .fs-1{width:110px;height:110px;left:8%;top:6%;background:#fff}
+  .fs-2{width:72px;height:72px;right:12%;top:24%;background:#000}
+  .fs-3{width:140px;height:140px;left:60%;bottom:12%;background:#fff}
+  header:hover{filter:brightness(1.05)}
+
+  /* woven overlay */
+  .woven{
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 8px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 6px);
+    pointer-events:none;
+    transition:opacity .45s ease;
+    opacity:1;
+  }
+  header:hover .woven{opacity:0.14}
+
+  /* nav */
+  nav{position:sticky;top:0;background:transparent;z-index:30;padding:.5rem 1rem;display:flex;justify-content:center;}
+  .nav-inner{max-width:900px;width:100%;display:flex;gap:.5rem;justify-content:center;backdrop-filter:blur(6px)}
+  .nav-pill{background:rgba(255,255,255,0.9);border-radius:999px;padding:.45rem .9rem;display:flex;gap:.55rem;align-items:center;box-shadow:var(--shadow)}
+  .nav-pill a{font-weight:600;color:var(--secondary);text-decoration:none;font-size:.95rem}
+  .nav-pill a:hover{color:var(--primary)}
+
+  .container{max-width:900px;margin:0 auto;padding:1rem}
+  .section{padding:1.25rem 0 1.5rem; position:relative}
+
+  .section-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
+  .section-head h2{font-size:1.05rem;margin:0;color:var(--secondary);font-weight:700}
+  .section-sub{font-size:.9rem;color:var(--muted);margin-top:.25rem}
+
+  /* ---------- Enhanced masonry "stones" ---------- */
+  .masonry{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 8px;
+    gap:10px;
+    align-items:start;
+  }
+
+  /* Stone tile base: make them feel like rounded pebbles */
+  .stone{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    padding:12px;
+    min-height:56px;
+    border-radius:20px; /* base fallback */
+    box-shadow: 0 10px 22px rgba(12,12,12,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: transform .26s cubic-bezier(.2,.9,.2,1), box-shadow .26s;
+    -webkit-tap-highlight-color: transparent;
+    overflow:visible;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.04));
+    color:#111;
+  }
+  .stone:active{transform:translateY(2px)}
+  .stone:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(12,12,12,0.12)}
+
+  /* irregular shape masks using multiple border-radius values applied inline via JS for uniqueness */
+  /* subtle grain / pebble texture via pseudo-element */
+  .stone::before{
+    content:"";
+    position:absolute;inset:0;border-radius:inherit;
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(255,255,255,0.06), transparent 18%),
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    mix-blend-mode: overlay;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* micro-noise via svg filter applied to stone inner surface (uses CSS filter) */
+  .stone .surface{
+    position:relative;z-index:2;padding:6px;
+  }
+
+  /* top label band (small inset) */
+  .stone .label{
+    display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:.86rem;margin-bottom:6px;
+    z-index:2;
+  }
+  .emoji{font-size:1.05rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12))}
+
+  .title{font-size:.95rem;font-weight:700;margin:0;line-height:1.14}
+  .meta{font-size:.78rem;color:#4f4f4f;margin-bottom:6px}
+
+  /* Enhanced stone color variations with more vibrant colors */
+  .stone.earth{ background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(254,202,87,0.15)); }
+  .stone.air  { background: linear-gradient(135deg, rgba(72,219,251,0.2), rgba(29,209,161,0.15)); }
+  .stone.fire { background: linear-gradient(135deg, rgba(255,159,243,0.2), rgba(165,94,234,0.15)); }
+  .stone.water{ background: linear-gradient(135deg, rgba(29,209,161,0.2), rgba(72,219,251,0.15)); }
+
+  /* soft shine animation element */
+  .shine{
+    position:absolute;top:-40%;left:-30%;width:160%;height:180%;transform:rotate(25deg);
+    background: linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.14) 45%, rgba(255,255,255,0.0) 70%);
+    opacity:0;pointer-events:none;border-radius:50%;
+    transition:opacity .45s ease, transform .45s ease;
+    z-index:1;
+    mix-blend-mode: screen;
+  }
+  .stone:hover .shine{opacity:1;transform:translateX(6%);}
+
+  /* stone 'cut' cracks (decorative) using pseudo-element */
+  .stone::after{
+    content:"";
+    position:absolute;left:6%;bottom:6%;width:40%;height:14%;border-radius:50%;
+    background: radial-gradient(ellipse at 20% 40%, rgba(0,0,0,0.03), rgba(0,0,0,0) 70%);
+    transform:rotate(-6deg);
+    pointer-events:none;z-index:1;opacity:0.9;
+  }
+
+  /* variable 'stone' sizes (grid helpers) */
+  .g-s1{grid-column: span 2; grid-row: span 32;}
+  .g-s2{grid-column: span 2; grid-row: span 18;}
+  .g-s3{grid-column: span 4; grid-row: span 14;}
+  .g-s4{grid-column: span 3; grid-row: span 22;}
+  .g-s5{grid-column: span 1; grid-row: span 14;}
+  .g-s6{grid-column: span 2; grid-row: span 10;}
+  
+  /* colorful border effect on hover */
+  .stone:hover {
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 0 18px 40px rgba(12,12,12,0.12), 0 0 0 3px rgba(255,107,107,0.2);
+  }
+  
+  /* responsive */
+  @media(min-width:480px){
+    .masonry{grid-template-columns: repeat(6, 1fr); gap:12px; grid-auto-rows:8px}
+    header{padding:3.8rem 1.25rem 3rem}
+    .hero-title{font-size:1.5rem}
+  }
+  @media(min-width:820px){
+    .masonry{grid-template-columns: repeat(12, 1fr); grid-auto-rows:8px; gap:14px}
+    .g-s3{grid-column: span 8}
+    .g-s4{grid-column: span 6}
+  }
+
+  /* small accessibility */
+  .stone:focus{outline:3px solid rgba(38,166,154,0.12)}
+  
+  /* Colorful footer */
+  footer {
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    color:#fff;
+    padding:1rem;
+    border-top-left-radius:28px;
+    border-top-right-radius:28px;
+    margin-top:12px;
+    text-align:center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+    background-size: 200% 200%;
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="header-pattern"></div>
-        <div class="container">
-            <h1>The Loom Textile Experience Centre</h1>
-            <p>Exploring the rich textile traditions of Karnataka and beyond through hands-on experiences and curated content</p>
-        </div>
-    </header>
-    
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#books">Books</a></li>
-                <li><a href="#songs">Songs</a></li>
-                <li><a href="#iconic-figures">Iconic Figures</a></li>
-                <li><a href="#events">Events</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <main class="container">
-        <section id="books">
-            <div class="section-title">
-                <h2>Textile Books</h2>
-            </div>
-            <div class="cards-container">
-                <!-- Book cards will be inserted here by JavaScript -->
-            </div>
-        </section>
-        
-        <section id="songs">
-            <div class="section-title">
-                <h2>Textile Songs</h2>
-            </div>
-            <div class="cards-container">
-                <!-- Song cards will be inserted here by JavaScript -->
-            </div>
-        </section>
-        
-        <section id="iconic-figures">
-            <div class="section-title">
-                <h2>Iconic Figures</h2>
-            </div>
-            <div class="cards-container">
-                <!-- Iconic figures cards will be inserted here by JavaScript -->
-            </div>
-        </section>
-        
-        <section id="events">
-            <div class="section-title">
-                <h2>Textile Events</h2>
-            </div>
-            <div class="cards-container">
-                <!-- Event cards will be inserted here by JavaScript -->
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">The Loom Textile Experience Centre</div>
-                <p>Part of The Proximity Project - Bringing public problems closer by creating places where people can see, touch, and talk about them</p>
-                <div class="contact-info">
-                    <p>Contact us: <a href="mailto:explore@socratus.org" style="color: var(--primary-color);">explore@socratus.org</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        // Textile data from the spreadsheet
-        const textileData = {
-            books: [
-                {
-                    title: "The Transformation of the Handloom Industry in South India, 1800–1960",
-                    creator: "",
-                    description: "Handloom industry 1800–1960"
-                },
-                {
-                    title: "Textiles of Karnataka",
-                    creator: "",
-                    description: "Overview essays"
-                },
-                {
-                    title: "Visvakarma: Textiles — Art & Artistry",
-                    creator: "",
-                    description: "Exhibition materials"
-                },
-                {
-                    title: "The Fabric of India / Textiles of India",
-                    creator: "V&A",
-                    description: "Compendia"
-                },
-                {
-                    title: "Overdressed: The Shockingly High Cost of Cheap Fashion",
-                    creator: "Elizabeth Cline",
-                    description: "On cheap fashion"
-                },
-                {
-                    title: "Sustainable Fashion and Textiles: Design Journeys",
-                    creator: "Kate Fletcher",
-                    description: "Design journeys"
-                },
-                {
-                    title: "The True Cost & related literature",
-                    creator: "",
-                    description: "Companion texts"
-                }
-            ],
-            songs: [
-                {
-                    title: "Jhini Jhini Bini Chadariya",
-                    creator: "Prahlad Singh Tipanya",
-                    description: "Kabir weaving metaphor"
-                },
-                {
-                    title: "Man Lago Mero Yaar Fakiri Mein",
-                    creator: "Vidya Rao",
-                    description: "Kabir song with loom imagery"
-                },
-                {
-                    title: "Handloom Weavers' Songs",
-                    creator: "",
-                    description: "Tamil folk collections"
-                },
-                {
-                    title: "Kaiyil Oru Kodi",
-                    creator: "Arivumathi",
-                    description: "Film song, weaving metaphor"
-                },
-                {
-                    title: "Pochampally weaving community songs",
-                    creator: "",
-                    description: "Folk weaving songs"
-                },
-                {
-                    title: "Nekaralu Paatalu",
-                    creator: "Prof. Jayashree (collection)",
-                    description: "Nalgonda weavers' songs"
-                }
-            ],
-            iconicFigures: [
-                {
-                    title: "Kamaladevi Chattopadhyay",
-                    creator: "",
-                    description: "Revived handloom sector, founded institutions"
-                },
-                {
-                    title: "Pupul Jayakar",
-                    creator: "",
-                    description: "Documented & promoted handlooms"
-                },
-                {
-                    title: "Laila Tyabji",
-                    creator: "",
-                    description: "Founder of Dastkar, grassroots weavers"
-                },
-                {
-                    title: "Rta Kapur Chishti",
-                    creator: "",
-                    description: "Scholar, Saris of India series"
-                },
-                {
-                    title: "Ela Bhatt",
-                    creator: "",
-                    description: "Founded SEWA, empowered artisans"
-                },
-                {
-                    title: "Martand Singh ('Mapu')",
-                    creator: "",
-                    description: "Curator of Visvakarma Exhibitions"
-                }
-            ],
-            events: [
-                {
-                    title: "Textile Fairs India",
-                    creator: "",
-                    description: "F&A Show, Yarnex, Texindia"
-                },
-                {
-                    title: "Weaver cooperatives",
-                    creator: "Karnataka clusters",
-                    description: "Ilkal, Ramanagara"
-                }
-            ]
-        };
+<!-- HERO -->
+<header>
+  <div class="float-shape fs-1"></div>
+  <div class="float-shape fs-2"></div>
+  <div class="float-shape fs-3"></div>
+  <div class="woven"></div>
 
-        // Icons for different categories
-        const icons = {
-            books: "📚",
-            songs: "🎵",
-            iconicFigures: "👤",
-            events: "📅"
-        };
+  <div class="wrap">
+    <div>
+      <div class="hero-title">The Loom — Everyday Materials Experience Centre</div>
+      <div class="hero-sub">A mobile-first immersive presentation. The content (books, songs, figures, events) is unchanged — the cards are now tactile stone-like tiles in an organic masonry arrangement.</div>
+    </div>
+  </div>
+</header>
 
-        // Function to create card HTML
-        function createCard(item, category) {
-            return `
-                <div class="card">
-                    <div class="card-image ${category}">
-                        <div class="card-icon">${icons[category]}</div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-category">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
-                        <h3 class="card-title">${item.title}</h3>
-                        ${item.creator ? `<p class="card-creator">By ${item.creator}</p>` : ''}
-                        <p class="card-description">${item.description}</p>
-                    </div>
-                </div>
-            `;
-        }
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-pill" role="navigation" aria-label="main navigation">
+      <a href="#books">Books</a>
+      <span style="width:8px"></span>
+      <a href="#songs">Songs</a>
+      <span style="width:8px"></span>
+      <a href="#iconic-figures">Iconic Figures</a>
+      <span style="width:8px"></span>
+      <a href="#events">Events</a>
+    </div>
+  </div>
+</nav>
 
-        // Function to populate sections with cards
-        function populateSection(sectionId, data) {
-            const container = document.querySelector(`#${sectionId} .cards-container`);
-            container.innerHTML = '';
-            
-            data.forEach(item => {
-                container.innerHTML += createCard(item, sectionId);
-            });
-        }
+<main class="container">
 
-        // Populate all sections when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            populateSection('books', textileData.books);
-            populateSection('songs', textileData.songs);
-            populateSection('iconic-figures', textileData.iconicFigures);
-            populateSection('events', textileData.events);
-        });
-    </script>
+  <!-- Books (Earth mood) -->
+  <section id="books" class="section" style="position:relative;">
+    <div class="section-head"><h2>Textile Books</h2></div>
+    <div class="masonry" id="books-grid" aria-live="polite"></div>
+  </section>
+
+  <!-- Songs (Air mood) -->
+  <section id="songs" class="section" style="position:relative;">
+    <div class="section-head"><h2>Textile Songs</h2></div>
+    <div class="masonry" id="songs-grid"></div>
+  </section>
+
+  <!-- Iconic Figures (Fire mood) -->
+  <section id="iconic-figures" class="section" style="position:relative;">
+    <div class="section-head"><h2>Iconic Figures</h2></div>
+    <div class="masonry" id="figs-grid"></div>
+  </section>
+
+  <!-- Events (Water mood) -->
+  <section id="events" class="section" style="position:relative;">
+    <div class="section-head"><h2>Textile Events</h2></div>
+    <div class="masonry" id="events-grid"></div>
+  </section>
+
+  <div style="margin:1.25rem 0;padding:1rem;background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));border-radius:14px;box-shadow:var(--shadow); border-left: 4px solid var(--primary)">
+    <h3 style="margin:0;color:var(--secondary)">Reflect & Rebalance</h3>
+    <p style="margin:.6rem 0 0;color:#444">What begins with water returns to it — every material we use enters the same cycle. Small conscious choices ripple outward.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div style="max-width:900px;margin:0 auto;padding:.6rem 1rem; position: relative; z-index: 2;">
+    <div style="font-weight:700;margin-bottom:.45rem">The Loom Textile Experience Centre</div>
+    <div style="font-size:.95rem;opacity:.98">Part of The Proximity Project — Bringing public problems closer by creating places where people can see, touch and talk about them.</div>
+    <div style="margin-top:.6rem;font-size:.95rem">Contact: <a href="mailto:explore@socratus.org" style="color:#fff;text-decoration:underline">explore@socratus.org</a></div>
+  </div>
+</footer>
+
+<script>
+/* ========== Data (unchanged) ========== */
+const textileData = {
+  books: [
+    { title: "The Transformation of the Handloom Industry in South India, 1800–1960", creator: "", description: "Handloom industry 1800–1960" },
+    { title: "Textiles of Karnataka", creator: "", description: "Overview essays" },
+    { title: "Visvakarma: Textiles — Art & Artistry", creator: "", description: "Exhibition materials" },
+    { title: "The Fabric of India / Textiles of India", creator: "V&A", description: "Compendia" },
+    { title: "Overdressed: The Shockingly High Cost of Cheap Fashion", creator: "Elizabeth Cline", description: "On cheap fashion" },
+    { title: "Sustainable Fashion and Textiles: Design Journeys", creator: "Kate Fletcher", description: "Design journeys" },
+    { title: "The True Cost & related literature", creator: "", description: "Companion texts" }
+  ],
+  songs: [
+    { title: "Jhini Jhini Bini Chadariya", creator: "Prahlad Singh Tipanya", description: "Kabir weaving metaphor" },
+    { title: "Man Lago Mero Yaar Fakiri Mein", creator: "Vidya Rao", description: "Kabir song with loom imagery" },
+    { title: "Handloom Weavers' Songs", creator: "", description: "Tamil folk collections" },
+    { title: "Kaiyil Oru Kodi", creator: "Arivumathi", description: "Film song, weaving metaphor" },
+    { title: "Pochampally weaving community songs", creator: "", description: "Folk weaving songs" },
+    { title: "Nekaralu Paatalu", creator: "Prof. Jayashree (collection)", description: "Nalgonda weavers' songs" }
+  ],
+  iconicFigures: [
+    { title: "Kamaladevi Chattopadhyay", creator: "", description: "Revived handloom sector, founded institutions" },
+    { title: "Pupul Jayakar", creator: "", description: "Documented & promoted handlooms" },
+    { title: "Laila Tyabji", creator: "", description: "Founder of Dastkar, grassroots weavers" },
+    { title: "Rta Kapur Chishti", creator: "", description: "Scholar, Saris of India series" },
+    { title: "Ela Bhatt", creator: "", description: "Founded SEWA, empowered artisans" },
+    { title: "Martand Singh ('Mapu')", creator: "", description: "Curator of Visvakarma Exhibitions" }
+  ],
+  events: [
+    { title: "Textile Fairs India", creator: "", description: "F&A Show, Yarnex, Texindia" },
+    { title: "Weaver cooperatives", creator: "Karnataka clusters", description: "Ilkal, Ramanagara" }
+  ]
+};
+
+/* Size pattern for organic masonry */
+const sizePattern = ['g-s4','g-s2','g-s6','g-s1','g-s5','g-s3','g-s2','g-s6'];
+
+/* category meta */
+const categoryMeta = {
+  books: { cls: 'earth', emoji:'📚', short:'Books' },
+  songs: { cls: 'air', emoji:'🎵', short:'Songs' },
+  'iconic-figures': { cls: 'fire', emoji:'👤', short:'Figures' },
+  events: { cls: 'water', emoji:'📅', short:'Events' }
+};
+
+/* deterministic irregular radii & rotation patterns for natural look */
+const radiusPatterns = [
+  '48% 52% 38% 62% / 44% 36% 64% 56%',
+  '56% 40% 68% 32% / 50% 60% 40% 50%',
+  '42% 58% 54% 46% / 36% 62% 38% 54%',
+  '60% 34% 50% 50% / 54% 34% 60% 52%',
+  '46% 46% 56% 52% / 48% 40% 56% 56%',
+  '52% 60% 30% 58% / 50% 52% 46% 58%',
+  '40% 44% 66% 46% / 36% 34% 66% 54%',
+  '62% 36% 46% 56% / 58% 44% 36% 62%'
+];
+const rotatePattern = [ -2, 1.5, -1, 2.2, -1.6, 0.8, 2.8, -1.2 ];
+
+/* helper */
+function mk(tag, txt, cls){
+  const el = document.createElement(tag);
+  if(txt) el.textContent = txt;
+  if(cls) el.className = cls;
+  return el;
+}
+
+/* build a stone tile */
+function buildStone(item, categoryKey, idx){
+  const stone = mk('article','', 'stone '+categoryMeta[categoryKey].cls);
+  const sizeClass = sizePattern[idx % sizePattern.length] || 'g-s2';
+  stone.classList.add(sizeClass);
+
+  // unique organic border-radius and rotation (deterministic by idx)
+  const r = radiusPatterns[idx % radiusPatterns.length];
+  const rot = rotatePattern[idx % rotatePattern.length];
+  stone.style.borderRadius = r;
+  stone.style.transform = `rotate(${rot}deg)`;
+
+  // inner surface
+  const surface = mk('div','', 'surface');
+  const label = mk('div','', 'label');
+  const emoji = mk('div', categoryMeta[categoryKey].emoji, 'emoji');
+  const short = mk('div', categoryMeta[categoryKey].short, 'cat-short');
+  label.appendChild(emoji);
+  label.appendChild(short);
+
+  const meta = mk('div', item.creator ? `By ${item.creator}` : '', 'meta');
+  const title = mk('h3', item.title, 'title');
+  const desc = mk('p', item.description, 'desc');
+
+  // decorative shine element
+  const shine = mk('div','', 'shine');
+
+  surface.appendChild(label);
+  surface.appendChild(meta);
+  surface.appendChild(title);
+  surface.appendChild(desc);
+  stone.appendChild(shine);
+  stone.appendChild(surface);
+
+  // subtle interaction: small pulse + hint
+  stone.addEventListener('click', ()=>{
+    stone.style.transition='transform .12s ease';
+    stone.style.transform += ' translateY(-4px)';
+    setTimeout(()=> {
+      // remove the translateY while preserving rotation
+      const currentTransform = stone.style.transform || '';
+      // keep rotation piece only
+      stone.style.transform = `rotate(${rot}deg)`;
+    },120);
+    showTransientTip(stone, 'Tap again to open details (future).');
+  });
+
+  return stone;
+}
+
+/* small transient tip */
+function showTransientTip(anchor, text){
+  let tip = anchor._tip;
+  if(tip){ tip.remove(); anchor._tip = null; }
+  tip = document.createElement('div');
+  tip.textContent = text;
+  tip.style.position='absolute';
+  tip.style.left='12px';
+  tip.style.bottom='12px';
+  tip.style.padding='8px 10px';
+  tip.style.fontSize='12px';
+  tip.style.background='rgba(0,0,0,0.6)';
+  tip.style.color='#fff';
+  tip.style.borderRadius='10px';
+  tip.style.zIndex=40;
+  tip.style.opacity='0';
+  tip.style.transition='opacity .22s ease, transform .22s ease';
+  anchor.appendChild(tip);
+  requestAnimationFrame(()=>{ tip.style.opacity='1'; tip.style.transform='translateY(-4px)'; });
+  anchor._tip = tip;
+  setTimeout(()=>{ if(tip){ tip.style.opacity='0'; tip.style.transform='translateY(0)'; setTimeout(()=>tip.remove(),240); anchor._tip=null } }, 1500);
+}
+
+/* populate grid */
+function populateGrid(gridId, arr, categoryKey){
+  const grid = document.getElementById(gridId);
+  arr.forEach((item, i)=>{
+    const stone = buildStone(item, categoryKey, i);
+    grid.appendChild(stone);
+  });
+}
+
+/* initialize */
+document.addEventListener('DOMContentLoaded', ()=>{
+  populateGrid('books-grid', textileData.books, 'books');
+  populateGrid('songs-grid', textileData.songs, 'songs');
+  populateGrid('figs-grid', textileData.iconicFigures, 'iconic-figures');
+  populateGrid('events-grid', textileData.events, 'events');
+
+  // scroll parallax for header shapes (lightweight)
+  let last = 0;
+  window.addEventListener('scroll', ()=>{
+    const sc = window.scrollY || window.pageYOffset;
+    const fs1 = document.querySelector('.fs-1');
+    const fs2 = document.querySelector('.fs-2');
+    const fs3 = document.querySelector('.fs-3');
+    if(fs1) fs1.style.transform = `translateY(${sc * 0.04}px)`;
+    if(fs2) fs2.style.transform = `translateY(${sc * 0.02}px)`;
+    if(fs3) fs3.style.transform = `translateY(${sc * -0.03}px)`;
+    last = sc;
+  }, {passive:true});
+});
+</script>
 </body>
 </html>
