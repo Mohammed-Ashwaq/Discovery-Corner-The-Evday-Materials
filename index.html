@@ -273,7 +273,7 @@
   <div class="wrap">
     <div>
       <div class="hero-title">The Everyday Materials Experience Centre</div>
-      <!-- <div class="hero-sub">A mobile-first immersive presentation. The content (books, songs, figures, events) is unchanged — the cards are now tactile stone-like tiles in an organic masonry arrangement.</div> -->
+      <!-- <div class="hero-sub">A mobile-first immersive presentation. The content (books, mov, figures, events) is unchanged — the cards are now tactile stone-like tiles in an organic masonry arrangement.</div> -->
     </div>
   </div>
 </header>
@@ -380,21 +380,21 @@
 /* ========== Data (unchanged) ========== */
 const textileData = {
   books: [
-    { title: "The Transformation of the Handloom Industry in South India, 1800–1960", creator: "", description: "Handloom industry 1800–1960" },
-    { title: "Textiles of Karnataka", creator: "", description: "Overview essays" },
-    { title: "Visvakarma: Textiles — Art & Artistry", creator: "", description: "Exhibition materials" },
-    { title: "The Fabric of India / Textiles of India", creator: "V&A", description: "Compendia" },
-    { title: "Overdressed: The Shockingly High Cost of Cheap Fashion", creator: "Elizabeth Cline", description: "On cheap fashion" },
-    { title: "Sustainable Fashion and Textiles: Design Journeys", creator: "Kate Fletcher", description: "Design journeys" },
-    { title: "The True Cost & related literature", creator: "", description: "Companion texts" }
+    { title: "Zero Waste Home", creator: "Bea Johnson", description: "Children's/educational" },
+    { title: "The Sustainable Living Guide", creator: "Jen Gale", description: "Environmental reports" },
+    { title: "Sustainable Home", creator: "Christine Liu", description: "Literary/academic" },
+    { title: "Dirt to Soil", creator: "Gabe Brown", description: "Essays on rivers" },
+    { title: "Slowly Down the Ganges", creator: "Eric Newby", description: "Travel writing" },
+    { title: "Restoration Agriculture", creator: "Mark Shepard", description: "History of Indus" },
+    { title: "Wilding", creator: "Isabella Tree", description: "Environmental history of Brahmaputra" }
   ],
-  songs: [
-    { title: "Jhini Jhini Bini Chadariya", creator: "Prahlad Singh Tipanya", description: "Kabir weaving metaphor" },
-    { title: "Man Lago Mero Yaar Fakiri Mein", creator: "Vidya Rao", description: "Kabir song with loom imagery" },
-    { title: "Handloom Weavers' Songs", creator: "", description: "Tamil folk collections" },
-    { title: "Kaiyil Oru Kodi", creator: "Arivumathi", description: "Film song, weaving metaphor" },
-    { title: "Pochampally weaving community songs", creator: "", description: "Folk weaving songs" },
-    { title: "Nekaralu Paatalu", creator: "Prof. Jayashree (collection)", description: "Nalgonda weavers' songs" }
+  mov: [
+    { title: "No Imapct Man     ", creator: "Laura Gambert Rated 6.6", description: "Documentary on family living with sustainable practises" },
+    { title: "The Clean Bin Project", creator: "Oscar Tuazon Rated 7.2", description: "Environmental film" },
+    { title: "Living the change", creator: "Jordan Osmond Rated 7.0", description: " Explores solutions to the global crises we face today" },
+    { title: "Down to Earth with Zac Efron", creator: "Zac Efron Rated 8.0", description: "Zac Efron journeys around the world with wellness expert Darin Olien" },
+    { title: "Laila Gold (Short Film)", creator: "Prof Niranjan Vanalli", description: "This award winning short-film shows how a Karnataka village is turning waste into wealth" },
+    { title: "Kadaisi Vivasayi  (Tamil)", creator: "Vijay Sethupathy / M Manikanandan Rated 8.7", description: "Depicts the life of a traditional farmer practicing sustainable agriculture and highlights the importance of ecological balance and rural wisdom" }
   ],
   iconicFigures: [
     { title: "Kamaladevi Chattopadhyay", creator: "", description: "Revived handloom sector, founded institutions" },
@@ -416,7 +416,7 @@ const sizePattern = ['g-s4','g-s2','g-s6','g-s1','g-s5','g-s3','g-s2','g-s6'];
 /* category meta */
 const categoryMeta = {
   books: { cls: 'earth', emoji:'📚', short:'Books' },
-  songs: { cls: 'air', emoji:'🎵', short:'Songs' },
+  mov: { cls: 'air', emoji:'🎵', short:'mov' },
   'iconic-figures': { cls: 'fire', emoji:'👤', short:'Figures' },
   events: { cls: 'water', emoji:'📅', short:'Events' }
 };
@@ -527,7 +527,7 @@ function populateGrid(gridId, arr, categoryKey){
 /* initialize */
 document.addEventListener('DOMContentLoaded', ()=>{
   populateGrid('books-grid', textileData.books, 'books');
-  populateGrid('mov-grid', textileData.songs, 'songs');
+  populateGrid('mov-grid', textileData.mov, 'mov');
   populateGrid('figs-grid', textileData.iconicFigures, 'iconic-figures');
   populateGrid('events-grid', textileData.events, 'events');
 
