@@ -486,8 +486,8 @@
         border-radius: 20px;
       ">
      
-      <source src="./images/7d0bd2e0-925e-489b-bb38-5f440b971b61.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      <source src="./images/freecompress-665769e9-37f5-4110-92e1-9181595080fb.mp4" type="video/mp4">
+      Your browser does not support the video tag yeh.
     </video>
 
     <!-- Dark overlay to neutralize video -->
@@ -634,13 +634,44 @@ const textileData = {
     }
   ],
   iconicFigures: [
-    { title: "Kamaladevi Chattopadhyay", creator: "", description: "Revived handloom sector, founded institutions" },
-    { title: "Pupul Jayakar", creator: "", description: "Documented & promoted handlooms" },
-    { title: "Laila Tyabji", creator: "", description: "Founder of Dastkar, grassroots weavers" },
-    { title: "Rta Kapur Chishti", creator: "", description: "Scholar, Saris of India series" },
-    { title: "Ela Bhatt", creator: "", description: "Founded SEWA, empowered artisans" },
-    { title: "Martand Singh ('Mapu')", creator: "", description: "Curator of Visvakarma Exhibitions" }
-  ],
+  { 
+    title: "Kamaladevi Chattopadhyay", 
+    creator: "", 
+    description: "Revived handloom sector, founded institutions",
+    image: "./"
+  },
+  { 
+    title: "Pupul Jayakar", 
+    creator: "", 
+    description: "Documented & promoted handlooms",
+    image: "./images/pupuljayakar.jpg"
+  },
+  { 
+    title: "Laila Tyabji", 
+    creator: "", 
+    description: "Founder of Dastkar, grassroots weavers",
+    image: "./images/lailatyabji.jpg"
+  },
+  { 
+    title: "Rta Kapur Chishti", 
+    creator: "", 
+    description: "Scholar, Saris of India series",
+    image: "./images/rtakapur.jpg"
+  },
+  { 
+    title: "Ela Bhatt", 
+    creator: "", 
+    description: "Founded SEWA, empowered artisans",
+    image: "./images/elabhatt.jpg"
+  },
+  { 
+    title: "Martand Singh ('Mapu')", 
+    creator: "", 
+    description: "Curator of Visvakarma Exhibitions",
+    image: "./images/martandsingh.jpg"
+  }
+],
+
   events: [
     { title: "Textile Fairs India", creator: "", description: "F&A Show, Yarnex, Texindia" },
     { title: "Weaver cooperatives", creator: "Karnataka clusters", description: "Ilkal, Ramanagara" }
@@ -712,6 +743,18 @@ function buildStone(item, categoryKey, idx){
   const sizeClass = sizePattern[idx % sizePattern.length] || 'g-s2';
   stone.classList.add(sizeClass);
 
+  // IMG Img Handler
+  if (categoryKey === 'iconic-figures' && item.image) {
+  const img = document.createElement('img');
+  img.src = item.image;
+  img.alt = item.title;
+  img.style.width = '100%';
+  img.style.borderRadius = '16px';
+  img.style.objectFit = 'cover';
+  img.style.marginBottom = '8px';
+  img.style.maxHeight = '200px';
+  surface.appendChild(img);
+}
   // Add special class for video section stones
   if (categoryKey === 'mov') {
     stone.classList.add('video-section-stone');
