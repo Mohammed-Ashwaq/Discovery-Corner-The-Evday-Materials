@@ -260,6 +260,15 @@
     font-weight: 500;
   }
 
+  /* Simple link indicator for books and movies - no button styles */
+  .link-indicator{
+    font-size:0.75rem;
+    color:black;
+    font-weight:600;
+    margin-top:8px;
+    font-family: "Tektur", sans-serif;
+  }
+
   /* Enhanced stone color variations with better contrast */
   .stone.earth{ 
     background: linear-gradient(135deg, rgba(255,107,107,0.4), rgba(254,202,87,0.3)); 
@@ -273,6 +282,8 @@
   .stone.water{ 
     background: linear-gradient(135deg, rgba(29,209,161,0.4), rgba(72,219,251,0.3)); 
   }
+
+ 
 
   /* soft shine animation element */
   .shine{
@@ -331,6 +342,10 @@
     color: rgba(255,255,255,0.95) !important;
     font-weight: 700;
     font-family: "Tektur", sans-serif;
+  }
+
+  .video-section-stone .link-indicator {
+    color: rgba(255,255,255,0.9) !important;
   }
   
   /* Footer with Tektur font */
@@ -521,66 +536,102 @@
 
 <script>
 
-/* ========== Data with download links ========== */
+/* ========== Data with website links ========== */
 const textileData = {
   books: [
     { 
       title: "Zero Waste Home", 
       creator: "Bea Johnson", 
       description: "Children's/educational", 
-      downloadUrl: "Assets/Zero Waste Home (Bea Johnson).pdf",
-      fileName: "Zero Waste Home (Bea Johnson).pdf"
+      externalUrl: "https://amzn.in/d/irGOnI2",
+      linkText: "Available on Amazon"
     },
     { 
       title: "The Sustainable Living Guide", 
       creator: "Jen Gale", 
       description: "Environmental reports",
-      downloadUrl: "Assets/The Sustainable living.pdf",
-      fileName: "The Sustainable living.pdf"
+      externalUrl: "https://amzn.in/d/fCiOmkg",
+      linkText: "Available on Amazon"
     },
     { 
       title: "Sustainable Home", 
       creator: "Christine Liu", 
       description: "Literary/academic",
-      downloadUrl: "Assests/Sustainable Home  Practical.epub",
-      fileName: "Sustainable Home  Practical.epub"
+      externalUrl: "https://amzn.in/d/7vse4Ak",
+      linkText: "Available on Amazon"
     },
     { 
       title: "Dirt to Soil", 
       creator: "Gabe Brown", 
-      description: "Essays on rivers",
-      downloadUrl: "Assests/Dirt to Soil One Family’s J.epub",
-      fileName: "Dirt to Soil One Family’s J.epub"
+      description: "NA",
+      externalUrl: "https://amzn.in/d/2gxTjtZ",
+      linkText: "Available on Amazon"
     },
     { 
-      title: "Slowly Down the Ganges", 
-      creator: "Eric Newby", 
-      description: "Travel writing",
-      downloadUrl: "./downloads/slowly-down-ganges.pdf",
-      fileName: "Slowly-Down-Ganges-Eric-Newby.pdf"
+      title: "101 ways to Go Zero", 
+      creator: "Kathryn Kellog", 
+      description: "Practical Guide",
+      externalUrl: "https://amzn.in/d/6trZ6iH",
+      linkText: "Available on Amazon"
     },
     { 
-      title: "Restoration Agriculture", 
-      creator: "Mark Shepard", 
-      description: "History of Indus",
-      downloadUrl: "./downloads/restoration-agriculture.pdf",
-      fileName: "Restoration-Agriculture-Mark-Shepard.pdf"
+      title: "Cradle to Cradle", 
+      creator: "William McDonough & M Braungart", 
+      description: "Sytem & Design",
+      externalUrl: "https://amzn.in/d/iY7UTMI",
+      linkText: "Available on Amazon"
     },
     { 
-      title: "Wilding", 
-      creator: "Isabella Tree", 
-      description: "Environmental history of Brahmaputra",
-      downloadUrl: "./downloads/wilding.pdf",
-      fileName: "Wilding-Isabella-Tree.pdf"
+      title: "The Book of Self-Sufficiency ", 
+      creator: "john Seymour", 
+      description: "Practical Guide",
+      externalUrl: "https://amzn.in/d/hllJJoI",
+      linkText: "Available on Amazon"
     }
   ],
   mov: [
-    { title: "No Imapct Man     ", creator: "Laura Gambert Rated 6.6", description: "Documentary on family living with sustainable practises" },
-    { title: "The Clean Bin Project", creator: "Oscar Tuazon Rated 7.2", description: "Environmental film" },
-    { title: "Living the change", creator: "Jordan Osmond Rated 7.0", description: " Explores solutions to the global crises we face today" },
-    { title: "Down to Earth with Zac Efron", creator: "Zac Efron Rated 8.0", description: "Zac Efron journeys around the world with wellness expert Darin Olien" },
-    { title: "Laila Gold (Short Film)", creator: "Prof Niranjan Vanalli", description: "This award winning short-film shows how a Karnataka village is turning waste into wealth" },
-    { title: "Kadaisi Vivasayi  (Tamil)", creator: "Vijay Sethupathy / M Manikanandan Rated 8.7", description: "Depicts the life of a traditional farmer practicing sustainable agriculture and highlights the importance of ecological balance and rural wisdom" }
+    { 
+      title: "No Impact Man", 
+      creator: "Laura Gambert ", 
+      description: "Documentary on family living with sustainable practises", 
+      externalUrl: "https://en.wikipedia.org/wiki/No_Impact_Man",
+      linkText: "Rated 6.6"
+    },
+    { 
+      title: "The Clean Bean Project", 
+      creator: "Oscar Tuazon ", 
+      description: "Environmental film",
+      externalUrl: "https://www.imdb.com/title/tt1746836/",
+      linkText: "Rated 7.2"
+    },
+    { 
+      title: "Living the Change", 
+      creator: "Jordan Osmond ", 
+      description: "Explores solutions to the global crises we face today",
+      externalUrl: "https://www.imdb.com/title/tt8115474/",
+      linkText: "Rated 7.0"
+    },
+    { 
+      title: "Down to Earth with Zac Efron", 
+      creator: "Zac Efron ", 
+      description: "Zac Efron journeys around the world with wellness expert Darin Olien",
+      externalUrl: "https://www.imdb.com/title/tt12585152/?ref_=fn_t_1",
+      linkText: "Rated 8.0"
+    },
+    { 
+      title: "Laila Gold (Short Film)", 
+      creator: "Prof Niranjan Vanalli", 
+      description: "This award winning short-film shows how a Karnataka village is turning waste into wealth",
+      externalUrl: "https://youtu.be/_2TUy6xD5TY?si=Bx0pabS9CnfIDdo_",
+      linkText: ""
+    },
+    { 
+      title: "Kadaisi Vivasayi (Tamil)", 
+      creator: "Vijay Sethupathy / M Manikanandan ", 
+      description: "Depicts the life of a traditional farmer practicing sustainable agriculture",
+      externalUrl: "https://www.imdb.com/title/tt10300570/?ref_=fn_t_1",
+      linkText: "Rated 8.7"
+    }
   ],
   iconicFigures: [
     { title: "Kamaladevi Chattopadhyay", creator: "", description: "Revived handloom sector, founded institutions" },
@@ -602,7 +653,7 @@ const sizePattern = ['g-s4','g-s2','g-s6','g-s1','g-s5','g-s3','g-s2','g-s6'];
 /* category meta */
 const categoryMeta = {
   books: { cls: 'earth', emoji:'', short:'Books' },
-  mov: { cls: 'air', emoji:'', short:'mov' },
+  mov: { cls: 'air', emoji:'', short:'Movies' },
   'iconic-figures': { cls: 'fire', emoji:'', short:'Figures' },
   events: { cls: 'water', emoji:'', short:'Events' }
 };
@@ -628,37 +679,23 @@ function mk(tag, txt, cls){
   return el;
 }
 
-/* Download function */
-function downloadFile(url, filename) {
-  // Create a temporary anchor element
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  
-  // Show download confirmation
-  showDownloadConfirmation(filename);
-}
-
-/* Show download confirmation */
-function showDownloadConfirmation(filename) {
+/* Show external link confirmation */
+function showLinkConfirmation(siteName) {
   // Remove any existing confirmation
   const existingConfirmation = document.querySelector('.download-confirmation');
   if (existingConfirmation) {
     existingConfirmation.remove();
   }
   
-  // confirmation element
+  // Create confirmation element
   const confirmation = document.createElement('div');
   confirmation.className = 'download-confirmation';
-  confirmation.textContent = `Downloading: ${filename}`;
+  confirmation.textContent = `Opening: ${siteName}`;
   confirmation.style.animation = 'slideIn 0.3s ease';
   
   document.body.appendChild(confirmation);
   
-  //confirmation after 3 seconds
+  // Remove confirmation after 3 seconds
   setTimeout(() => {
     confirmation.style.animation = 'slideOut 0.5s ease';
     setTimeout(() => {
@@ -686,10 +723,10 @@ function buildStone(item, categoryKey, idx){
   stone.style.borderRadius = r;
   stone.style.transform = `rotate(${rot}deg)`;
 
-  // Add download cursor and title for books
-  if (categoryKey === 'books') {
+  // Add click cursor and title for items with external links
+  if ((categoryKey === 'books' || categoryKey === 'mov') && item.externalUrl) {
     stone.style.cursor = 'pointer';
-    stone.title = 'Click to download';
+    stone.title = 'Click to visit website';
   }
 
   // inner surface
@@ -697,8 +734,7 @@ function buildStone(item, categoryKey, idx){
   const label = mk('div','', 'label');
   const emoji = mk('div', (categoryMeta[categoryKey] ? categoryMeta[categoryKey].emoji : ''), 'emoji');
   const short = mk('div', (categoryMeta[categoryKey] ? categoryMeta[categoryKey].short : ''), 'cat-short');
-  label.appendChild(emoji);
-  label.appendChild(short);
+  
 
   // meta (creator)
   const meta = mk('div', item.creator ? `${item.creator}` : '', 'meta');
@@ -711,6 +747,12 @@ function buildStone(item, categoryKey, idx){
   const title = mk('h3', item.title, 'title');
   const desc = mk('p', item.description || '', 'desc');
 
+  // Add link indicator for items with external links
+  if ((categoryKey === 'books' || categoryKey === 'mov') && item.externalUrl) {
+    const linkIndicator = mk('div', item.linkText || 'Visit Website', 'link-indicator');
+    surface.appendChild(linkIndicator);
+  }
+
   // decorative shine element
   const shine = mk('div','', 'shine');
 
@@ -722,15 +764,18 @@ function buildStone(item, categoryKey, idx){
   stone.appendChild(shine);
   stone.appendChild(surface);
 
-  // Click handler - Different behavior for books (download) vs others (existing behavior)
+  // Click handler - External links for books and movies
   stone.addEventListener('click', ()=>{
-    if (categoryKey === 'books' && item.downloadUrl) {
-      // Download functionality for books
-      stone.style.transition = 'transform .12s ease, background-color .3s ease';
-      stone.style.backgroundColor = 'rgba(93, 187, 170, 0.3)'; // Highlight color
+    if ((categoryKey === 'books' || categoryKey === 'mov') && item.externalUrl) {
+      // Open external website in new tab
+      window.open(item.externalUrl, '_blank', 'noopener,noreferrer');
       
-      // Trigger download
-      downloadFile(item.downloadUrl, item.fileName);
+      // Visual feedback
+      stone.style.transition = 'transform .12s ease, background-color .3s ease';
+      stone.style.backgroundColor = categoryKey === 'books' ? 'rgba(93, 187, 170, 0.3)' : 'rgba(72, 219, 251, 0.3)';
+      
+      // Show confirmation
+      showLinkConfirmation(item.title);
       
       // Reset background color after a delay
       setTimeout(() => {
