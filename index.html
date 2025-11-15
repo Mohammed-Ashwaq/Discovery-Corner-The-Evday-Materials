@@ -438,7 +438,7 @@ footer::before {
   <section id="books" class="section">
     <div class="section-head"><h2 style="color: black;">Books Worthy Of Your Time</h2></div>
     <div class="central-display books-central">
-      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2', '_blank')">
+      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2', 'target=_blank')">
         <div class="central-icon"></div>
         <h3 class="central-title">Zero Waste Home</h3>
         <p class="central-creator">Bea Johnson</p>
@@ -470,7 +470,7 @@ footer::before {
   <section id="movies" class="section">
     <div class="section-head"><h2 style="color:black;">Remarkable Movies</h2></div>
     <div class="central-display movies-central">
-      <div class="central-stone" id="movies-central" onclick="window.open('https://en.wikipedia.org/wiki/No_Impact_Man', '_blank')">
+      <div class="central-stone" id="movies-central" onclick="window.open('https://en.wikipedia.org/wiki/No_Impact_Man', 'target=_blank')">
         <div class="central-icon"></div>
         <h3 class="central-title">No Impact Man</h3>
         <p class="central-creator">Laura Gambert</p>
@@ -502,7 +502,7 @@ footer::before {
   <section id="figures" class="section">
     <div class="section-head"><h2 style="color:black;">Iconic Figures</h2></div>
     <div class="central-display figures-central">
-      <div class="central-stone" id="figures-central" onclick="window.open('https://yourstory.com/socialstory/2025/01/krishna-waste-collector-entrepreneur-champion-of-change', '_blank')">
+      <div class="central-stone" id="figures-central" onclick="window.open('https://yourstory.com/socialstory/2025/01/krishna-waste-collector-entrepreneur-champion-of-change', 'target=_blank')">
         <img src="https://images.yourstory.com/cs/5/8e7cc4102d6c11e9aa979329348d4c3e/Krishna-1735872619758.png?mode=crop&crop=faces&ar=16%3A9&format=auto&w=1920&q=75" alt="Krishna" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white; margin-bottom: 1rem;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRjRCOTQyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JY29uPC90ZXh0Pjwvc3ZnPg=='">
         <h3 class="central-title">Krishnna</h3>
         <p class="central-creator">A Wasteprenuer</p>
@@ -579,13 +579,13 @@ footer::before {
     <div style="font-size:.95rem;opacity:.98; font-weight: 500;">Part of The Proximity Project — Bringing public problems closer by creating places where people can see, touch and talk about them.</div>
     <div style="margin-top:.6rem;font-size:.95rem; font-weight: 500;">A Collaborative effort by </div>
       <a href="https://socratus.org" target="_blank" style="display: inline-block;">
-        <img src="./images/SocratusIND_logo.png" alt="Socratus logo" style="width:50px;height:50px; object-fit: contain; margin-top:10px; margin-right: 15px;">
+        <img src="./images/Socratus_logo.jpg" alt="Socratus logo" style="width:70px;height:70px; object-fit: contain; margin-top:10px; margin-right: 15px;">
       </a>
       <a href="https://lvbl.in" target="_blank" style="display: inline-block;">
-        <img src="./images/lvbl_logo.png" alt="LVBL logo" style="width:50px;height:50px; object-fit: contain; margin-top:10px; margin-right: 15px;">
+        <img src="./images/lvbl_logo.png" alt="LVBL logo" style="width: 70px;height:70px; object-fit: contain; margin-top:10px; margin-right: 15px;">
       </a>
-      <a href="https://http://materiallibraryofindia.com" target="_blank" style="display: inline-block;">
-        <img src="./images/logo-MLI.png" alt="MLI logo" style="width:50px;height:50px; object-fit: contain;margin-top:10px;">
+      <a href="http://materiallibraryofindia.com" target="_blank" style="display: inline-block;">
+        <img src="./images/logo-MLI.png" alt="MLI logo" style="width:70px;height:70px; object-fit: contain;margin-top:10px;">
     
     <div style="margin-top:.6rem;font-size:.95rem; font-weight: 500;"><a href="mailto:explore@socratus.org" style="color:#fff;text-decoration:underline"> Contact: explore@socratus.org</a></div>
   </div>
@@ -595,26 +595,26 @@ footer::before {
 // Data for ALL sections with external URLs
 const data = {
   books: [
-    { title: "Zero Waste Home", creator: "Bea Johnson", description: "Children's/educational", url: "https://amzn.in/d/irGOnI2", icon: "📚" },
-    { title: "Sustainable Living Guide", creator: "Jen Gale", description: "Environmental reports", url: "https://amzn.in/d/fCiOmkg", icon: "🌱" },
-    { title: "Sustainable Home", creator: "Christine Liu", description: "Literary/academic", url: "https://amzn.in/d/7vse4Ak", icon: "🏠" },
-    { title: "Dirt to Soil", creator: "Gabe Brown", description: "Sustainable farming practices", url: "https://amzn.in/d/2gxTjtZ", icon: "🌾" },
-    { title: "101 ways to Go Zero", creator: "Kathryn Kellog", description: "Practical Guide", url: "https://amzn.in/d/6trZ6iH", icon: "💡" },
-    { title: "Cradle to Cradle", creator: "McDonough & Braungart", description: "System & Design", url: "https://amzn.in/d/iY7UTMI", icon: "🔄" }
+    { title: "Zero Waste Home", creator: "Bea Johnson", description: "Children's/educational", url: "https://amzn.in/d/irGOnI2", icon: "" },
+    { title: "Sustainable Living Guide", creator: "Jen Gale", description: "Environmental reports", url: "https://amzn.in/d/fCiOmkg", icon: "" },
+    { title: "Sustainable Home", creator: "Christine Liu", description: "Literary/academic", url: "https://amzn.in/d/7vse4Ak", icon: "" },
+    { title: "Dirt to Soil", creator: "Gabe Brown", description: "Sustainable farming practices", url: "https://amzn.in/d/2gxTjtZ", icon: "" },
+    { title: "101 ways to Go Zero", creator: "Kathryn Kellog", description: "Practical Guide", url: "https://amzn.in/d/6trZ6iH", icon: "" },
+    { title: "Cradle to Cradle", creator: "McDonough & Braungart", description: "System & Design", url: "https://amzn.in/d/iY7UTMI", icon: "" }
   ],
   movies: [
-    { title: "No Impact Man", creator: "Laura Gambert", description: "Documentary on sustainable living", url: "https://en.wikipedia.org/wiki/No_Impact_Man", icon: "🎬" },
-    { title: "The Clean Bean Project", creator: "Oscar Tuazon", description: "Environmental film", url: "https://www.imdb.com/title/tt1746836/", icon: "🌍" },
-    { title: "Living the Change", creator: "Jordan Osmond", description: "Solutions to global crises", url: "https://www.imdb.com/title/tt8115474/", icon: "✨" },
-    { title: "Down to Earth", creator: "Zac Efron", description: "Wellness journey worldwide", url: "https://www.imdb.com/title/tt12585152/", icon: "✈️" },
-    { title: "Laila Gold", creator: "Prof Niranjan", description: "Waste to wealth in Karnataka", url: "https://youtu.be/_2TUy6xD5TY", icon: "💰" },
-    { title: "Kadaisi Vivasayi", creator: "Vijay Sethupathy", description: "Traditional farming practices", url: "https://www.imdb.com/title/tt10300570/", icon: "👨‍🌾" }
+    { title: "No Impact Man", creator: "Laura Gambert", description: "Documentary on sustainable living", url: "https://en.wikipedia.org/wiki/No_Impact_Man", icon: "" },
+    { title: "The Clean Bean Project", creator: "Oscar Tuazon", description: "Environmental film", url: "https://www.imdb.com/title/tt1746836/", icon: "" },
+    { title: "Living the Change", creator: "Jordan Osmond", description: "Solutions to global crises", url: "https://www.imdb.com/title/tt8115474/", icon: "" },
+    { title: "Down to Earth", creator: "Zac Efron", description: "Wellness journey worldwide", url: "https://www.imdb.com/title/tt12585152/", icon: "" },
+    { title: "Laila Gold", creator: "Prof Niranjan", description: "Waste to wealth in Karnataka", url: "https://youtu.be/_2TUy6xD5TY", icon: "" },
+    { title: "Kadaisi Vivasayi", creator: "Vijay Sethupathy", description: "Traditional farming practices", url: "https://www.imdb.com/title/tt10300570/", icon: "" }
   ],
   figures: [
     { title: "Sunita Narain", creator: "Environmentalist & Political activist", description: "Time Magazine's 100 Most Influential", url: "https://en.wikipedia.org/wiki/Sunita_Narain?utm_source=chatgpt.com", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sunita_Narain_CSE.jpg/330px-Sunita_Narain_CSE.jpg", icon: "" },
     { title: "G. Shankar", creator: "Architect", description: "He Advocates Eco-friendly Homes", url: "https://en.wikipedia.org/wiki/G._Shankar", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/G._Shankar.jpg/500px-G._Shankar.jpg", icon: "" },
     { title: "Mina Guli", creator: "CEO/Ativist", description: "Advocates for water conservation & carbon footprint awareness ", url: "https://en.wikipedia.org/wiki/Mina_Guli", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Mina_Guli_World_Economic_Forum_2013.jpg/500px-Mina_Guli_World_Economic_Forum_2013.jpg", icon: "" },
-    { title: "Ashwin Mahesh", creator: "urbanist, scholar,social technologist", description: "Climate Scientist @NASA, founder LVBL, Mapunity, BPAC", url: "https://en.wikipedia.org/wiki/Ashwin_Mahesh", image: "https://tse4.mm.bing.net/th/id/OIP.Tne102SwHoes01DFCCUAtQAAAA?pid=Api&P=0&h=180", icon: "" },
+    { title: "Ashwin Mahesh", creator: "urbanist, scholar,social technologist", description: "Climate Scientist @NASA, founder LVBL, Mapunity, BPAC", url: "https://en.wikipedia.org/wiki/Ashwin_Mahesh", image: "/images/Ashwin_photo.jpg", icon: "" },
     { title: "Jadav payeng", creator: "Forest Man of India", description: "The fourth highest civilian award in India, Created more than 1360 acres of forest", url: "https://en.wikipedia.org/wiki/Jadav_Payeng", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Jadav_Payeng_Forest_Man_Of_India.jpg/500px-Jadav_Payeng_Forest_Man_Of_India.jpg", icon: "" },
     { title: "Anshu Gupta", creator: "Founded Goonj", description: "Through Goonj, Anshu is building a parallel trash-based economy by creating barter between rural communities and urban surplus material.", url: "https://en.wikipedia.org/wiki/Anshu_Gupta", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Anshu_Gupta_%288%29.jpg/500px-Anshu_Gupta_%288%29.jpg", icon: "" }
   ],
@@ -671,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3 class="title">${item.title}</h3>
           <div class="meta">${item.creator}</div>
           <div class="desc">${item.description}</div>
-          ${item.url ? '<div class="stone-link">Click to visit ↗</div>' : ''}
+          ${item.url ? '<div class="stone-link">read more ↗</div>' : ''}
         </div>
       `;
       
