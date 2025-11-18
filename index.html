@@ -676,22 +676,27 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       
       // Add click handler for external redirection
-      stone.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        if (item.url) {
-          window.open(item.url, '_blank');
-          
-          // Visual feedback
-          stone.style.background = 'rgba(255,255,255,0.5)';
-          setTimeout(() => stone.style.background = '', 500);
-        }
-        
-        // Prevent default to avoid scrolling issues
-        e.preventDefault();
-        e.stopPropagation();
-      });
+      // Add click handler for external redirection
+    stone.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!item.url) return;
+
+    // FIX: Amazon SHOULD NOT OPEN IN NEW TAB
+      if (item.url.includes("amazon")) {
+        window.location.href = item.url;   // same tab → back works
+        return;
+    }
+
+    // others can open in new tab
+    window.open(item.url, '_blank');
+
+    // Visual feedback
+    stone.style.background = 'rgba(255,255,255,0.5)';
+    setTimeout(() => stone.style.background = '', 500);
+});
+
       
       grid.appendChild(stone);
     });
