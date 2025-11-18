@@ -438,7 +438,7 @@ footer::before {
   <section id="books" class="section">
     <div class="section-head"><h2 style="color: black;">Books Worthy Of Your Time</h2></div>
     <div class="central-display books-central">
-      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2', '_blank')">
+      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2')">
         <div class="central-icon"></div>
         <h3 class="central-title">Zero Waste Home</h3>
         <p class="central-creator">Bea Johnson</p>
@@ -676,23 +676,22 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       
       // Add click handler for external redirection
-      stone.addEventListener('click', (e) => {
-        if (item.url) {
-          window.open(item.url, '_blank');
-          
-          // Visual feedback
-          stone.style.background = 'rgba(255,255,255,0.5)';
-          setTimeout(() => stone.style.background = '', 500);
-        }
-        
-        // Prevent default to avoid scrolling issues
-        e.preventDefault();
-        e.stopPropagation();
-      });
-      
-      grid.appendChild(stone);
-    });
-  });
+     stone.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!item.url) return;
+
+      // Books → open in SAME tab (back button works)
+      if (section === "books") {
+        window.location.href = item.url;
+        return;
+      }
+
+        // Others → open in new tab
+      window.open(item.url, '_blank');
+});
+
 
   // Add bubble interactions
   document.querySelectorAll('.bubble').forEach(bubble => {
