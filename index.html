@@ -438,7 +438,7 @@ footer::before {
   <section id="books" class="section">
     <div class="section-head"><h2 style="color: black;">Books Worthy Of Your Time</h2></div>
     <div class="central-display books-central">
-      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2?&tag=web')">
+      <div class="central-stone" id="books-central" onclick="window.location.href='https://amzn.in/d/irGOnI2'">
         <div class="central-icon"></div>
         <h3 class="central-title">Zero Waste Home</h3>
         <p class="central-creator">Bea Johnson</p>
@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!item.url) return;
 
     // FIX: Amazon SHOULD NOT OPEN IN NEW TAB
-      if (item.url.includes("amazon")) {
+      if (item.url.includes("amazon")) || item.url.includes("amz.in")) {
         window.location.href = item.url;   // same tab → back works
         return;
     }
@@ -742,7 +742,7 @@ function updateCentralDisplay(item, section) {
   // Update central stone click handler
   if (item.url) {
     central.style.cursor = 'pointer';
-    central.onclick = () => window.open(item.url, '_blank', 'noopener,noreferrer');
+    central.onclick = () => window.location.href = item.url;
   } else {
     central.style.cursor = 'default';
     central.onclick = null;
