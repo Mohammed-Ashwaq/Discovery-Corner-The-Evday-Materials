@@ -438,7 +438,7 @@ footer::before {
   <section id="books" class="section">
     <div class="section-head"><h2 style="color: black;">Books Worthy Of Your Time</h2></div>
     <div class="central-display books-central">
-      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2')">
+      <div class="central-stone" id="books-central" onclick="window.open('https://amzn.in/d/irGOnI2?&tag=web')">
         <div class="central-icon"></div>
         <h3 class="central-title">Zero Waste Home</h3>
         <p class="central-creator">Bea Johnson</p>
@@ -595,12 +595,12 @@ footer::before {
 // Data for ALL sections with external URLs
 const data = {
   books: [
-    { title: "Zero Waste Home", creator: "Bea Johnson", description: "Children's/educational", url: "https://amzn.in/d/irGOnI2", icon: "" },
-    { title: "Sustainable Living Guide", creator: "Jen Gale", description: "Environmental reports", url: "https://amzn.in/d/fCiOmkg", icon: "" },
-    { title: "Sustainable Home", creator: "Christine Liu", description: "Literary/academic", url: "https://amzn.in/d/7vse4Ak", icon: "" },
-    { title: "Dirt to Soil", creator: "Gabe Brown", description: "Sustainable farming practices", url: "https://amzn.in/d/2gxTjtZ", icon: "" },
-    { title: "101 ways to Go Zero", creator: "Kathryn Kellog", description: "Practical Guide", url: "https://amzn.in/d/6trZ6iH", icon: "" },
-    { title: "Cradle to Cradle", creator: "McDonough & Braungart", description: "System & Design", url: "https://amzn.in/d/iY7UTMI", icon: "" }
+    { title: "Zero Waste Home", creator: "Bea Johnson", description: "Children's/educational", url: "https://amzn.in/d/irGOnI2?&tag=web", icon: "" },
+    { title: "Sustainable Living Guide", creator: "Jen Gale", description: "Environmental reports", url: "https://amzn.in/d/fCiOmkg?&tag=web", icon: "" },
+    { title: "Sustainable Home", creator: "Christine Liu", description: "Literary/academic", url: "https://amzn.in/d/7vse4Ak?&tag=web", icon: "" },
+    { title: "Dirt to Soil", creator: "Gabe Brown", description: "Sustainable farming practices", url: "https://amzn.in/d/2gxTjtZ?&tag=web", icon: "" },
+    { title: "101 ways to Go Zero", creator: "Kathryn Kellog", description: "Practical Guide", url: "https://amzn.in/d/6trZ6iH?&tag=web", icon: "" },
+    { title: "Cradle to Cradle", creator: "McDonough & Braungart", description: "System & Design", url: "https://amzn.in/d/iY7UTMI?&tag=web", icon: "" }
   ],
   movies: [
     { title: "No Impact Man", creator: "Laura Gambert", description: "Documentary on sustainable living", url: "https://en.wikipedia.org/wiki/No_Impact_Man", icon: "" },
@@ -676,22 +676,26 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       
       // Add click handler for external redirection
-     stone.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (!item.url) return;
-
-      // Books → open in SAME tab (back button works)
-      if (section === "books") {
-        window.location.href = item.url;
-        return;
-      }
-
-        // Others → open in new tab
-      window.open(item.url, '_blank');
-});
-
+      stone.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropogation();
+        
+        if (item.url) {
+          window.open(item.url, '_blank');
+          
+          // Visual feedback
+          stone.style.background = 'rgba(255,255,255,0.5)';
+          setTimeout(() => stone.style.background = '', 500);
+        }
+        
+        // Prevent default to avoid scrolling issues
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      
+      grid.appendChild(stone);
+    });
+  });
 
   // Add bubble interactions
   document.querySelectorAll('.bubble').forEach(bubble => {
