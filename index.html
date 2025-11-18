@@ -156,7 +156,7 @@
   /* Section Colors */
   .books-central .central-stone { background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(254,202,87,0.1), rgba(255,255,255,0.95)); border: 2px solid rgba(255,107,107,0.3); }
   .movies-central .central-stone { background: linear-gradient(135deg, rgba(72,219,251,0.15), rgba(29,209,161,0.1), rgba(255,255,255,0.95)); border: 2px solid rgba(72,219,251,0.3); }
-  .figures-central .central-stone { background: linear-gradient(135deg, rgba(255,159,243,0.15), rgba(165,94,234,0.1), rgba(255,255,255,0.95)); border: 2px solid rgba(255,159,243,0.3); }
+  .People-central .central-stone { background: linear-gradient(135deg, rgba(255,159,243,0.15), rgba(165,94,234,0.1), rgba(255,255,255,0.95)); border: 2px solid rgba(255,159,243,0.3); }
   .events-central .central-stone { background: linear-gradient(135deg, rgba(29,209,161,0.15), rgba(72,219,251,0.1), rgba(255,255,255,0.95)); border: 2px solid rgba(29,209,161,0.3); }
 
   /* Stone Masonry */
@@ -426,7 +426,7 @@ footer::before {
     <div class="nav-pill">
       <a href="#books">Books</a><span style="width:8px"></span>
       <a href="#movies">Movies</a><span style="width:8px"></span>
-      <a href="#figures">Figures</a><span style="width:8px"></span>
+      <a href="#People">People</a><span style="width:8px"></span>
       <!-- <a href="#events">Events</a> -->
     </div>
   </div>
@@ -498,11 +498,11 @@ footer::before {
     <div class="masonry" id="movies-grid"></div>
   </section>
 
-  <!-- FIGURES SECTION -->
-  <section id="figures" class="section">
-    <div class="section-head"><h2 style="color:black;">Iconic Figures</h2></div>
-    <div class="central-display figures-central">
-      <div class="central-stone" id="figures-central" onclick="window.open('https://yourstory.com/socialstory/2025/01/krishna-waste-collector-entrepreneur-champion-of-change', 'target=_blank')">
+  <!-- People SECTION -->
+  <section id="People" class="section">
+    <div class="section-head"><h2 style="color:black;">Iconic People</h2></div>
+    <div class="central-display People-central">
+      <div class="central-stone" id="People-central" onclick="window.open('https://yourstory.com/socialstory/2025/01/krishna-waste-collector-entrepreneur-champion-of-change', 'target=_blank')">
         <img src="https://images.yourstory.com/cs/5/8e7cc4102d6c11e9aa979329348d4c3e/Krishna-1735872619758.png?mode=crop&crop=faces&ar=16%3A9&format=auto&w=1920&q=75" alt="Krishna" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white; margin-bottom: 1rem;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRjRCOTQyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JY29uPC90ZXh0Pjwvc3ZnPg=='">
         <h3 class="central-title">Krishnna</h3>
         <p class="central-creator">A Wasteprenuer</p>
@@ -527,7 +527,7 @@ footer::before {
         <div class="bubble medium bubble-color-4"></div>
       </div>
     </div>
-    <div class="masonry" id="figures-grid"></div>
+    <div class="masonry" id="People-grid"></div>
   </section>
 
   <!-- EVENTS SECTION
@@ -610,11 +610,11 @@ const data = {
     { title: "Laila Gold", creator: "Prof Niranjan", description: "Waste to wealth in Karnataka", url: "https://youtu.be/_2TUy6xD5TY", icon: "" },
     { title: "Kadaisi Vivasayi", creator: "Vijay Sethupathy", description: "Traditional farming practices", url: "https://www.imdb.com/title/tt10300570/", icon: "" }
   ],
-  figures: [
+  People: [
     { title: "Sunita Narain", creator: "Environmentalist & Political activist", description: "Time Magazine's 100 Most Influential", url: "https://en.wikipedia.org/wiki/Sunita_Narain?utm_source=chatgpt.com", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sunita_Narain_CSE.jpg/330px-Sunita_Narain_CSE.jpg", icon: "" },
     { title: "G. Shankar", creator: "Architect", description: "He Advocates Eco-friendly Homes", url: "https://en.wikipedia.org/wiki/G._Shankar", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/G._Shankar.jpg/500px-G._Shankar.jpg", icon: "" },
     { title: "Mina Guli", creator: "CEO/Ativist", description: "Advocates for water conservation & carbon footprint awareness ", url: "https://en.wikipedia.org/wiki/Mina_Guli", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Mina_Guli_World_Economic_Forum_2013.jpg/500px-Mina_Guli_World_Economic_Forum_2013.jpg", icon: "" },
-    { title: "Ashwin Mahesh", creator: "urbanist, scholar,social technologist", description: "Climate Scientist @NASA, founder LVBL, Mapunity, BPAC", url: "https://en.wikipedia.org/wiki/Ashwin_Mahesh", image: "/images/Ashwin_photo.jpg", icon: "" },
+    { title: "Ashwin Mahesh", creator: "urbanist,scholar,social technologist", description: "Founder LVBL, Mapunity, BPAC", url: "https://en.wikipedia.org/wiki/Ashwin_Mahesh", image:"./images/Ashwin_photo.jpg", icon: "" },
     { title: "Jadav payeng", creator: "Forest Man of India", description: "The fourth highest civilian award in India, Created more than 1360 acres of forest", url: "https://en.wikipedia.org/wiki/Jadav_Payeng", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Jadav_Payeng_Forest_Man_Of_India.jpg/500px-Jadav_Payeng_Forest_Man_Of_India.jpg", icon: "" },
     { title: "Anshu Gupta", creator: "Founded Goonj", description: "Through Goonj, Anshu is building a parallel trash-based economy by creating barter between rural communities and urban surplus material.", url: "https://en.wikipedia.org/wiki/Anshu_Gupta", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Anshu_Gupta_%288%29.jpg/500px-Anshu_Gupta_%288%29.jpg", icon: "" }
   ],
@@ -630,7 +630,7 @@ const data = {
 const sizePatterns = {
   books: ['medium', 'small', 'medium', 'large', 'small', 'medium'],
   movies: ['medium', 'small', 'medium', 'large', 'small', 'medium'],
-  figures: ['medium', 'small', 'medium', 'large', 'small', 'medium'],
+  People: ['medium', 'small', 'medium', 'large', 'small', 'medium'],
   events: ['medium', 'small', 'medium', 'large']
 };
 
@@ -638,7 +638,7 @@ const sizePatterns = {
 const sectionColors = {
   books: 'earth',
   movies: 'air', 
-  figures: 'fire',
+  People: 'fire',
   events: 'water'
 };
 
@@ -660,7 +660,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stone.className = `stone ${colorClass} ${sizeClass}`;
       
       let imageHTML = '';
-      if (section === 'figures' && item.image) {
+      if (section === 'People' && item.image) {
         imageHTML = `<img src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem;" onerror="this.style.display='none'">`;
       }
 
@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add click handler for external redirection
       stone.addEventListener('click', (e) => {
         if (item.url) {
-          window.open(item.url, '_blank', 'noopener,noreferrer');
+          window.open(item.url, '_blank');
           
           // Visual feedback
           stone.style.background = 'rgba(255,255,255,0.5)';
@@ -715,7 +715,7 @@ function updateCentralDisplay(item, section) {
     central.style.transform = 'scale(1)';
   }, 150);
   
-  if (section === 'figures') {
+  if (section === 'People') {
     central.innerHTML = `
       <img src="${item.image}" alt="${item.title}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid white; margin-bottom: 0.8rem;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRjRCOTQyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JY29uPC90ZXh0Pjwvc3ZnPg=='">
       <h3 class="central-title">${item.title}</h3>
